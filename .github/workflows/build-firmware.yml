@@ -6,10 +6,10 @@ on:
       config_seed:
         description: 'Build config'
         required: true
-        default: '1710.config'
+        default: '1710_cola.config'
         type: choice
         options:
-          - 1710.config
+          - 1710_cola.config
           - 2010.config
       release_type:
         description: 'Release Type'
