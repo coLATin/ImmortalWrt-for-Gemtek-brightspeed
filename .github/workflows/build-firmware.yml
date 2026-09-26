@@ -79,6 +79,12 @@ jobs:
           ./scripts/feeds install -a
           bash scripts/fix-stale-golang-host.sh
 
+      - name: Remove conflicting vmlinux-btf from daede feed
+        run: |
+          rm -rf package/feeds/daede/vmlinux-btf
+          echo "Removed daede feed vmlinux-btf package, to avoid bpf-headers dependency build failure"
+          ls -la package/feeds/daede/
+
       - name: Apply feed patches
         run: FEED_PATCHES_STRICT=1 bash scripts/apply-feed-patches.sh
 
